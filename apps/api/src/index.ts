@@ -1,15 +1,19 @@
+import 'dotenv/config'
 import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import { MastraServer } from '@mastra/hono'
+import { mastra } from './mastra/index.js'
+import { app } from './app.js'
 
-const app = new Hono()
+const server = new MastraServer({ app, mastra })
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+await server.init()
 
-serve({
-  fetch: app.fetch,
-  port: 3000
-}, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
-})
+serve(
+  {
+    fetch: app.fetch,
+    port: 4111,
+  },
+  info => {
+    console.log(`Server is running on http://localhost:${info.port}`)
+  },
+)
