@@ -19,6 +19,7 @@ function RouteComponent() {
         <MessageResponse>Hello, world!</MessageResponse>
         <Home></Home>
         <Example></Example>
+        <BasicExample></BasicExample>
         <ChatInput></ChatInput>
       </MessageContent>
     </Message>
@@ -144,6 +145,21 @@ function ChatInput() {
       placeholder="Ask anything…"
       onSubmit={handleSubmit}
       autoGrow
+      minHeight={48}
+    />
+  )
+}
+
+
+
+function BasicExample() {
+  const [segments, setSegments] = useState<any[]>([])
+  return (
+    <PromptArea
+      value={segments}
+      onChange={setSegments}
+      placeholder="Just a text input with Enter to submit..."
+      onSubmit={() => { setSegments([]) }}
       minHeight={48}
     />
   )
