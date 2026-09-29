@@ -19,6 +19,7 @@ function RouteComponent() {
         <MessageResponse>Hello, world!</MessageResponse>
         <Home></Home>
         <Example></Example>
+        <ChatInput></ChatInput>
       </MessageContent>
     </Message>
   );
@@ -123,3 +124,27 @@ function Example() {
   );
 };
 
+
+
+
+import { PromptArea } from '@workspace/ui/components/prompt-area/prompt-area'
+import { usePromptAreaState } from '@workspace/ui/components/prompt-area/use-prompt-area-state'
+
+function ChatInput() {
+  const { bind, plainText, isEmpty, clear } = usePromptAreaState()
+
+  function handleSubmit() {
+    if (isEmpty) return
+    clear()
+  }
+
+  return (
+    <PromptArea
+      {...bind}
+      placeholder="Ask anything…"
+      onSubmit={handleSubmit}
+      autoGrow
+      minHeight={48}
+    />
+  )
+}
