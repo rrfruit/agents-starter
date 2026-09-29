@@ -17,12 +17,16 @@ Your primary function is to help users get weather details for specific location
 - If the user asks for activities, respond in the format they request.
 
 Use the weatherTool to fetch current weather data.`,
-  model: {
-    providerId: "local",
-    modelId: "gpt-5.6-sol",
-    url: process.env.LOCAL_BASE_URL,
-    apiKey: process.env.LOCAL_API_KEY,
+  model: ({ requestContext }) => {
+    return {
+      providerId: "local",
+      modelId: "gpt-5.6-sol",
+      url: process.env.LOCAL_BASE_URL,
+      apiKey: process.env.LOCAL_API_KEY,
+    }
   },
-  tools: { weatherTool },
+  tools: ({ requestContext }) => {
+    return { weatherTool }
+  },
   memory: new Memory(),
 });
