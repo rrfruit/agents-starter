@@ -11,6 +11,9 @@ importers:
       '@hono/node-server':
         specifier: ^2.1.3
         version: 2.1.3(hono@4.13.11)
+      '@mastra/ai-sdk':
+        specifier: ^1.10.5
+        version: 1.10.5(@mastra/core@1.71.0(zod@4.6.5))(zod@4.6.5)
       '@mastra/core':
         specifier: ^1.71.0
         version: 1.71.0(zod@4.6.5)
@@ -32,6 +35,9 @@ importers:
       '@mastra/observability':
         specifier: ^1.18.1
         version: 1.18.1(@mastra/core@1.71.0(zod@4.6.5))(zod@4.6.5)
+      dotenv:
+        specifier: ^18.0.4
+        version: 18.0.4
       hono:
         specifier: ^4.13.11
         version: 4.13.11
@@ -557,6 +563,13 @@ packages:
   '@lukeed/uuid@2.0.1':
     resolution: {integrity: sha512-qC72D4+CDdjGqJvkFMMEAtancHUQ7/d/tAiHf64z8MopFDmcrtbcJuerDtFceuAfQJ2pDSfCKCtbqoGBNnwg0w==}
     engines: {node: '>=8'}
+
+  '@mastra/ai-sdk@1.10.5':
+    resolution: {integrity: sha512-wVAsB0lqzoX+y42cq+x7h1+qnfX8b2We9G3GmWynK7hvpIXCvQwWxfYb9WsyUxiL9Uq6bEIlgfAjpTMe9VX+AA==}
+    engines: {node: '>=22.13.0'}
+    peerDependencies:
+      '@mastra/core': '>=1.5.0-0 <2.0.0-0'
+      zod: ^3.25.0 || ^4.0.0
 
   '@mastra/core@1.71.0':
     resolution: {integrity: sha512-qpv0qbyzyFWBWVlzP+G4oea6e3e3JyxmeNAtS5wuzWc0/iHv47DWRYNJXbDC0kleYd6L4afFPh7dLxCsuyCSKg==}
@@ -1338,6 +1351,11 @@ packages:
   dotenv@17.4.2:
     resolution: {integrity: sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==}
     engines: {node: '>=12'}
+
+  dotenv@18.0.4:
+    resolution: {integrity: sha512-jGt9uI5BIxpVO15kvy+iEFqNAwxYClKWnkptLjSNPnFLC003Imd0ofr3aEVsbpHdSBdSsbcApNIlz4nbyGMwdA==}
+    engines: {node: '>=12'}
+    hasBin: true
 
   electron-to-chromium@1.5.439:
     resolution: {integrity: sha512-qu6QIPXhsb+CRcAiTMNjR4A1y/7tCYKkKjr5CZXRVih6qkDf79peZ2BpEU3qoDBNCRrcy3Mra3X9nG5oruuA7Q==}
@@ -2703,6 +2721,11 @@ snapshots:
     dependencies:
       '@lukeed/csprng': 1.1.0
 
+  '@mastra/ai-sdk@1.10.5(@mastra/core@1.71.0(zod@4.6.5))(zod@4.6.5)':
+    dependencies:
+      '@mastra/core': 1.71.0(zod@4.6.5)
+      zod: 4.6.5
+
   '@mastra/core@1.71.0(zod@4.6.5)':
     dependencies:
       '@a2a-js/sdk-v0_3': '@a2a-js/sdk@0.3.14'
@@ -3340,6 +3363,8 @@ snapshots:
   diff@8.0.4: {}
 
   dotenv@17.4.2: {}
+
+  dotenv@18.0.4: {}
 
   electron-to-chromium@1.5.439: {}
 
