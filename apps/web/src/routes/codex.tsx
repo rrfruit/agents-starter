@@ -17,7 +17,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Plus, Hand, Zap, Mic, ArrowUp, ChevronDown, FolderGit2, Laptop, GitBranch, RotateCcw } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { PromptArea } from '@workspace/ui/components/prompt-area/prompt-area'
-import { ActionBar } from '@workspace/ui/components/prompt-area/action-bar'
+import { ActionBar } from '@workspace/ui/components/action-bar/action-bar'
 import type { Segment, PromptAreaHandle } from '@workspace/ui/components/prompt-area/types'
 
 const TOOLBAR_PILL = 'text-[#8f9091] hover:bg-accent hover:text-foreground dark:text-muted-foreground flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[13px] transition-colors'
